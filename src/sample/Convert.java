@@ -1,10 +1,14 @@
 package sample;
 
+import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 
-public class Convert {
+	public class Convert {
+	static{
+		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+	}
 
 	public static void convertGray(){
         String path_in = "src/img/lenna.jpg";
