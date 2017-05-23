@@ -18,19 +18,20 @@ public class OpenCVSample {
         System.out.println("Start.");
 
         // Read image.
-        File inputFile = new File("src/img/lenna.jpg");
-        System.out.println(
-        String.format("Read %s.", inputFile.getName()));
-        Mat image = Imgcodecs.imread(
-                inputFile.getAbsolutePath());
+        String path_in = "src/img/lenna.jpg";
+        String path_out = "src/img/sample-face.jpg";
+
+        Mat image = Imgcodecs.imread(path_in);
         if (image == null) {
             throw new IllegalArgumentException("Illegal input file.");
         }
+        
         File settingFile =
                 new File("src/data/haarcascades/haarcascade_frontalface_default.xml");
         if (!settingFile.exists()) {
             throw new RuntimeException("No setting file.");
         }
+        
         MatOfRect faces = new MatOfRect();
         CascadeClassifier faceDetector = new CascadeClassifier(
                 settingFile.getAbsolutePath());
@@ -50,9 +51,7 @@ public class OpenCVSample {
         }
 
         // Save the result image of detection.
-        String filename = "src/img/sample-face.jpg";
-        System.out.println(String.format("Write %s", filename));
-        Imgcodecs.imwrite(filename, image);
+        Imgcodecs.imwrite(path_out, image);
         System.out.println(String.format("done."));
     }
 
