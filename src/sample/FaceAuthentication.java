@@ -12,7 +12,11 @@ import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.objdetect.CascadeClassifier;
 
-public class OpenCVSample {
+/**
+ * äÁîFèÿ
+ *
+ */
+public class FaceAuthentication {
     static{
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
     }
